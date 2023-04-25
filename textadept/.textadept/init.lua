@@ -19,6 +19,11 @@ require('file_diff')
 require('spellcheck')
 textredux = require 'textredux'
 keys['ctrl+p'] = textredux.fs.open_file
-textredux.core.style.fs_directory = {underlined = true}
+-- textredux.core.style.fs_directory = {underlined = true}
 -- open PDF's with Okular
 -- textadept.run.compile_commands.tex = 'mtxrun --autogenerate --script context --purge --synctex=-1 "%f"' and 'xdg-open "%e.pdf"'
+
+local file_browser = require('file_browser')
+table.insert(textadept.menu.menubar[_L['File']], 3, {
+  'Open Directory...', file_browser.init
+})
