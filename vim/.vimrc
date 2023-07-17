@@ -15,7 +15,7 @@ Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -41,13 +41,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'will133/vim-dirdiff'
 
 " slimv
-Plug 'kovisoft/slimv'
+" Plug 'kovisoft/slimv'
 
 " asyncrun other tasks
-Plug 'skywind3000/asyncrun.vim'
-
-" auto complete for c/c++ code
-Plug 'justmao945/vim-clang'
+" Plug 'skywind3000/asyncrun.vim'
 
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
@@ -57,11 +54,9 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'cdelledonne/vim-cmake'
 
-" Plug 'xolox/vim-misc'
-
-" Plug 'xolox/vim-notes'
-
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" TMux - Vim integration
+"
+Plug 'christoomey/vim-tmux-navigator'
 
 " Initialize plugin system
 call plug#end()
@@ -76,12 +71,6 @@ let g:seoul256_srgb = 1
 " Leaderf
 let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
-
-" NERDTreeToggle
-noremap <c-e> :NERDTreeToggle<cr>
-
-" vim-notes
-let g:notes_directories = ['~/Documents/notes']
 
 " gutentags
 " note about the default keymap of gutentags
@@ -139,3 +128,21 @@ set switchbuf+=usetab,newtab
 "
 " slimv
 let g:lisp_rainbow=1
+
+"" clang_complete is installed into ~/.vim without Plug management, how to
+" install: git clone https://github.com/xavierd/clang_complete.git /tmp/clang_complete
+" cp -r /tmp/clang_complete/* ~/.vim
+" Compiler options can be configured in a .clang_complete file in each project root
+let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+
+noremap <c-e> :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
+let g:tmux_navigator_no_mappings = 1
+
+noremap <silent> <C-h> :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> <C-j> :<C-U>TmuxNavigateDown<cr>
+noremap <silent> <C-k> :<C-U>TmuxNavigateUp<cr>
+noremap <silent> <C-l> :<C-U>TmuxNavigateRight<cr>
+noremap <silent> <C-w> :<C-U>TmuxNavigatePrevious<cr>
