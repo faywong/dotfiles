@@ -1,5 +1,5 @@
 ffmpeg_transform() {
-    set -x
+    # ref: https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
     filename=$(basename -- "$1")
     extension="${filename##*.}"
     filename="${filename%.*}"
