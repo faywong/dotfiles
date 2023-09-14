@@ -1,0 +1,12 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+name = faywong
+email = philip584521@gmail.com
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
