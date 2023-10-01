@@ -51,8 +51,8 @@ Plug 'tpope/vim-fugitive'
 " dirdiff
 Plug 'will133/vim-dirdiff'
 
-" slimv
-" Plug 'kovisoft/slimv'
+" for common lisp develop
+Plug 'vlime/vlime', {'rtp': 'vim/'}
 
 " asyncrun other tasks
 " Plug 'skywind3000/asyncrun.vim'
@@ -136,8 +136,6 @@ set switchbuf+=usetab,newtab
 " vim 101 articles
 " Quick Movement: https://medium.com/usevim/vim-101-quick-movement-c12889e759e0
 "
-" slimv
-let g:lisp_rainbow=1
 
 "" clang_complete is installed into ~/.vim without Plug management, how to
 " install: git clone https://github.com/xavierd/clang_complete.git /tmp/clang_complete
@@ -156,3 +154,7 @@ noremap <silent> <C-j> :<C-U>TmuxNavigateDown<cr>
 noremap <silent> <C-k> :<C-U>TmuxNavigateUp<cr>
 noremap <silent> <C-l> :<C-U>TmuxNavigateRight<cr>
 noremap <silent> <C-w> :<C-U>TmuxNavigatePrevious<cr>
+
+" vlime config
+let g:vlime_enable_autodoc = v:true
+let g:vlime_window_settings = {'sldb': {'pos': 'belowright', 'vertical': v:true}, 'inspector': {'pos': 'belowright', 'vertical': v:true}, 'preview': {'pos': 'belowright', 'size': v:null, 'vertical': v:true}}
