@@ -69,14 +69,18 @@ Plug 'cdelledonne/vim-cmake'
 "
 Plug 'christoomey/vim-tmux-navigator'
 
+" gruvbox colorscheme
+Plug 'morhetz/gruvbox'
+
 " Initialize plugin system
 call plug#end()
 
 " config for plugins
 "
-" seoul256
 " Unified color scheme (default: dark)
-colo seoul256
+let g:gruvbox_contrast_dark='soft'
+set background=dark
+colorscheme gruvbox
 
 " Leaderf
 let g:Lf_ShortcutF = '<C-P>'
