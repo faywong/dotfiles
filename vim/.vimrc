@@ -38,82 +38,60 @@ Plug 'junegunn/seoul256.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 Plug 'jremmen/vim-ripgrep'
-Plug 'hsanson/vim-android'
-
-" gen & manage tags
-Plug 'universal-ctags/ctags'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
 
 " git in vim
 Plug 'tpope/vim-fugitive'
 
-" dirdiff
-Plug 'will133/vim-dirdiff'
-
 " for common lisp develop
 Plug 'vlime/vlime', {'rtp': 'vim/'}
-
-" asyncrun other tasks
-" Plug 'skywind3000/asyncrun.vim'
 
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
 
-" rust-lang/rust.vim
-Plug 'rust-lang/rust.vim'
-
-Plug 'cdelledonne/vim-cmake'
+Plug 'brookhong/cscope.vim'
 
 " TMux - Vim integration
 "
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'dkprice/vim-easygrep'
+
 " gruvbox colorscheme
 Plug 'morhetz/gruvbox'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'vim-scripts/VimCompletesMe'
+Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
 call plug#end()
 
+if executable('clangd')
+    augroup lsp_clangd
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'clangd',
+                    \ 'cmd': {server_info->['clangd']},
+                    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                    \ })
+        autocmd FileType c setlocal omnifunc=lsp#complete
+        autocmd FileType cpp setlocal omnifunc=lsp#complete
+        autocmd FileType objc setlocal omnifunc=lsp#complete
+        autocmd FileType objcpp setlocal omnifunc=lsp#complete
+    augroup end
+endif
+
 " config for plugins
 "
 " Unified color scheme (default: dark)
-let g:gruvbox_contrast_dark='soft'
+let g:gruvbox_contrast_dark='medium'
 set background=dark
 colorscheme gruvbox
 
 " Leaderf
 let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
-
-" gutentags
-" note about the default keymap of gutentags
-"keymap	        desc
-"<leader>cs	Find symbol (reference) under cursor
-"<leader>cg	Find symbol definition under cursor
-"<leader>cd	Functions called by this function
-"<leader>cc	Functions calling this function
-"<leader>ct	Find text string under cursor
-"<leader>ce	Find egrep pattern under cursor
-"<leader>cf	Find file name under cursor
-"<leader>ci	Find files #including the file name under cursor
-"<leader>ca	Find places where current symbol is assigned
-"<leader>cz	Find current word in ctags database
-"
-set statusline+=%{gutentags#statusline()}
-" enable gtags module
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
-let g:gutentags_project_root = ['.git', '.root']
-
-" generate datebases in my cache directory, prevent gtags files polluting my project
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-
-" change focus to quickfix window after search (optional).
-let g:gutentags_plus_switch = 1
-" 配置 ctags 的参数 "
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 " indent
 set autoindent             " Indent according to previous line.
@@ -140,6 +118,8 @@ set switchbuf+=usetab,newtab
 " vim 101 articles
 " Quick Movement: https://medium.com/usevim/vim-101-quick-movement-c12889e759e0
 "
+" set GUI Font(MacVim, GVIM)
+set guifont=Fira\ Code:h18
 
 "" clang_complete is installed into ~/.vim without Plug management, how to
 " install: git clone https://github.com/xavierd/clang_complete.git /tmp/clang_complete
@@ -148,6 +128,27 @@ set switchbuf+=usetab,newtab
 let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 
 noremap <c-e> :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+
+nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
+
+" s: Find this C symbol
+nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+
 
 " Write all buffers before navigating from Vim to tmux pane
 let g:tmux_navigator_save_on_switch = 2
