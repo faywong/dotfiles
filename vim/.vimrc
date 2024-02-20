@@ -50,6 +50,10 @@ Plug 'itchyny/vim-cursorword'
 
 Plug 'brookhong/cscope.vim'
 
+Plug 'prabirshrestha/asyncomplete.vim'
+
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 " TMux - Vim integration
 "
 Plug 'christoomey/vim-tmux-navigator'
@@ -61,7 +65,9 @@ Plug 'morhetz/gruvbox'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'vim-scripts/VimCompletesMe'
+Plug 'mattn/vim-lsp-settings'
+" Simple tab completion for Vim
+" Plug 'vim-scripts/VimCompletesMe'
 Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
