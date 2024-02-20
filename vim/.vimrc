@@ -121,12 +121,6 @@ set switchbuf+=usetab,newtab
 " set GUI Font(MacVim, GVIM)
 set guifont=Fira\ Code:h18
 
-"" clang_complete is installed into ~/.vim without Plug management, how to
-" install: git clone https://github.com/xavierd/clang_complete.git /tmp/clang_complete
-" cp -r /tmp/clang_complete/* ~/.vim
-" Compiler options can be configured in a .clang_complete file in each project root
-let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-
 noremap <c-e> :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 
 nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
