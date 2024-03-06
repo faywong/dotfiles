@@ -63,12 +63,12 @@ Plug 'dkprice/vim-easygrep'
 " gruvbox colorscheme
 Plug 'morhetz/gruvbox'
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
 " Simple tab completion for Vim
 " Plug 'vim-scripts/VimCompletesMe'
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
 call plug#end()
