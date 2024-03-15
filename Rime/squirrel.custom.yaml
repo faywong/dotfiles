@@ -1,0 +1,33 @@
+patch:
+  # ascii_mode、inline、no_inline、vim_mode 等等设定
+  # 可参考 /Library/Input Methods/Squirrel.app/Contents/SharedSupport/squirrel.yaml
+  app_options:
+    # 右键『应用.app』-> 显示包内容 Contents/Info.plist -> BundleIdentifier
+    dd.work.exclusive4aliding:
+      ascii_mode: false
+      ascii_punct: false
+    com.microsoft.VSCode:
+      ascii_mode: true
+      ascii_punct: true
+    com.google.android.studio:
+      ascii_mode: true
+      ascii_punct: true
+    com.apple.dt.Xcode:
+      ascii_mode: true
+    com.apple.Spotlight:
+      ascii_mode: true
+    com.apple.Terminal:
+      ascii_mode: true
+      no_inline: true
+    com.googlecode.iterm2:
+      ascii_mode: true
+    com.alfredapp.Alfred:
+      ascii_mode: true
+    com.runningwithcrayons.Alfred-2:
+      ascii_mode: true
+    com.blacktree.Quicksilver:
+      ascii_mode: true
+    com.sublimetext.4:
+      ascii_mode: true
+    com.tigervnc.tigervnc:
+      ascii_mode: true
