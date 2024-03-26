@@ -96,6 +96,9 @@ endif
 " default to create new tab when launch file from quickfix list
 set switchbuf+=usetab,newtab
 
+" LeaderF config
+let g:Lf_RecurseSubmodules = 1
+
 " vim 101 articles
 " Quick Movement: https://medium.com/usevim/vim-101-quick-movement-c12889e759e0
 "
@@ -123,7 +126,6 @@ nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
 nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
 " i: Find files #including this file
 nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
-
 
 " Write all buffers before navigating from Vim to tmux pane
 let g:tmux_navigator_save_on_switch = 2
