@@ -5,6 +5,7 @@ name = faywong
 email = philip584521@gmail.com
 [core]
 	editor = vim
+        quotePath = false
 [alias]
 	co = checkout
 	ci = commit
