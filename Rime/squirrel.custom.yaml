@@ -35,3 +35,7 @@ patch:
       vim_mode: true
     com.tigervnc.tigervnc:
       ascii_mode: true
+    com.apple.finder:
+      ascii_mode: true
+    com.googlecode.iterm2:
+      ascii_mode: true
