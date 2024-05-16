@@ -19,17 +19,14 @@ call plug#begin('~/.vim/plugged')
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
-" Any valid git URL is allowed
-Plug 'junegunn/vim-github-dashboard'
-
 Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-" Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'ZSaberLv0/ZFVimDirDiff'
+Plug 'ZSaberLv0/ZFVimJob'
 
 " seoul256.vim is a low-contrast Vim color scheme based on Seoul Colors.
 Plug 'junegunn/seoul256.vim'
