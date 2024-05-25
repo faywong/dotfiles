@@ -299,3 +299,21 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" vim-slime
+"disables default bindings
+let g:slime_no_mappings = 1
+
+"send visual selection
+xmap <leader>s <Plug>SlimeRegionSend
+
+"send based on motion or text object
+nmap <leader>s <Plug>SlimeMotionSend
+
+"send line
+nmap <leader>ss <Plug>SlimeLineSend
+
+let g:slime_target = "tmux"
+" use `` tmux display -pt "${TMUX_PANE:?}" '#{pane_index}' `` to get panel
+" index
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
