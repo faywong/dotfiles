@@ -318,20 +318,17 @@ autocmd BufRead,BufNewFile *.scm set ft=scheme.guile
 " nmap <c-c>v     <Plug>SlimeConfig
 
 " vimterminal case
-let g:slime_target = "vimterminal"
+" let g:slime_target = "vimterminal"
 " I prefer my interactive REPL as a right side vertial split.
 " Just run :GuileTerminal in your vim session to start it and use
 " <Ctrl-W> <Ctrl-W> to switch between windows.
 "
 " Consult the vim `:help terminal` document to get a clear view of how
 " vim behaves when you're focus is within the terminal buffer.
-command GuileTerminal rightbelow vertical terminal guile
-set splitbelow
-set splitright
-let g:slime_vimterminal_config = {"term_finish": "close", "vertical": 1}
+" command GuileTerminal rightbelow vertical terminal guile
 
 " tmux case
-" let g:slime_target = "tmux"
+let g:slime_target = "tmux"
 " use `` tmux display -pt "${TMUX_PANE:?}" '#{pane_index}' `` to get panel
 " index
-" let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
