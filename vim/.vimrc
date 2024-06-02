@@ -39,8 +39,17 @@ Plug 'jremmen/vim-ripgrep'
 " git in vim
 Plug 'tpope/vim-fugitive'
 
-" for common lisp develop
-Plug 'vlime/vlime', {'rtp': 'vim/'}
+" GNU Guile syntax highlighting
+Plug 'HiPhish/guile.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'luochen1990/rainbow'
+Plug 'jpalardy/vim-slime'
+
+" for guile scheme develop
+Plug 'HiPhish/guile.vim'
 
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
@@ -64,7 +73,7 @@ call plug#end()
 "
 " Unified color scheme (default: dark)
 let g:gruvbox_contrast_light='hard'
-set background=light
+set background=dark
 colorscheme gruvbox
 
 " Leaderf
@@ -300,20 +309,29 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+autocmd BufRead,BufNewFile *.scm set ft=scheme.guile
+
 " vim-slime
-"disables default bindings
-let g:slime_no_mappings = 1
+" default mappings
+" xmap <c-c><c-c> <Plug>SlimeRegionSend
+" nmap <c-c><c-c> <Plug>SlimeParagraphSend
+" nmap <c-c>v     <Plug>SlimeConfig
 
-"send visual selection
-xmap <leader>s <Plug>SlimeRegionSend
+" vimterminal case
+let g:slime_target = "vimterminal"
+" I prefer my interactive REPL as a right side vertial split.
+" Just run :GuileTerminal in your vim session to start it and use
+" <Ctrl-W> <Ctrl-W> to switch between windows.
+"
+" Consult the vim `:help terminal` document to get a clear view of how
+" vim behaves when you're focus is within the terminal buffer.
+command GuileTerminal rightbelow vertical terminal guile
+set splitbelow
+set splitright
+let g:slime_vimterminal_config = {"term_finish": "close", "vertical": 1}
 
-"send based on motion or text object
-nmap <leader>s <Plug>SlimeMotionSend
-
-"send line
-nmap <leader>ss <Plug>SlimeLineSend
-
-let g:slime_target = "tmux"
+" tmux case
+" let g:slime_target = "tmux"
 " use `` tmux display -pt "${TMUX_PANE:?}" '#{pane_index}' `` to get panel
 " index
-let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
+" let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
