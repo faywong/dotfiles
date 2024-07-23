@@ -39,17 +39,8 @@ Plug 'jremmen/vim-ripgrep'
 " git in vim
 Plug 'tpope/vim-fugitive'
 
-" GNU Guile syntax highlighting
-Plug 'HiPhish/guile.vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'luochen1990/rainbow'
-Plug 'jpalardy/vim-slime'
-
-" for guile scheme develop
-Plug 'HiPhish/guile.vim'
+" for common lisp develop
+Plug 'vlime/vlime', {'rtp': 'vim/'}
 
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
@@ -60,8 +51,9 @@ Plug 'brookhong/cscope.vim'
 "
 Plug 'christoomey/vim-tmux-navigator'
 
-" gruvbox colorscheme
-Plug 'morhetz/gruvbox'
+" solarized colorscheme
+" Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 
 " Use release branch (recommended)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -71,10 +63,18 @@ call plug#end()
 
 " config for plugins
 "
-" Unified color scheme (default: dark)
-let g:gruvbox_contrast_light='hard'
-set background=dark
-colorscheme gruvbox
+" Unified color schema
+"syntax enable
+"let g:solarized_termcolors=256
+"set termguicolors
+"colorscheme solarized
+"if has('gui_running')
+"    set background=light
+"else
+"    set background=dark
+"endif
+set background=light
+colorscheme solarized8_high
 
 " Leaderf
 let g:Lf_ShortcutF = '<C-P>'
@@ -308,27 +308,3 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
-autocmd BufRead,BufNewFile *.scm set ft=scheme.guile
-
-" vim-slime
-" default mappings
-" xmap <c-c><c-c> <Plug>SlimeRegionSend
-" nmap <c-c><c-c> <Plug>SlimeParagraphSend
-" nmap <c-c>v     <Plug>SlimeConfig
-
-" vimterminal case
-" let g:slime_target = "vimterminal"
-" I prefer my interactive REPL as a right side vertial split.
-" Just run :GuileTerminal in your vim session to start it and use
-" <Ctrl-W> <Ctrl-W> to switch between windows.
-"
-" Consult the vim `:help terminal` document to get a clear view of how
-" vim behaves when you're focus is within the terminal buffer.
-" command GuileTerminal rightbelow vertical terminal guile
-
-" tmux case
-let g:slime_target = "tmux"
-" use `` tmux display -pt "${TMUX_PANE:?}" '#{pane_index}' `` to get panel
-" index
-let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
