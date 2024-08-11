@@ -27,12 +27,12 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'ZSaberLv0/ZFVimDirDiff'
 Plug 'ZSaberLv0/ZFVimJob'
-
+Plug 'cdelledonne/vim-cmake'
 " seoul256.vim is a low-contrast Vim color scheme based on Seoul Colors.
 Plug 'junegunn/seoul256.vim'
 
 " LeaderF for fuzzy finder
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 Plug 'jremmen/vim-ripgrep'
 
