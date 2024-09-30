@@ -27,12 +27,12 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'ZSaberLv0/ZFVimDirDiff'
 Plug 'ZSaberLv0/ZFVimJob'
-Plug 'cdelledonne/vim-cmake'
+" Plug 'cdelledonne/vim-cmake'
 " seoul256.vim is a low-contrast Vim color scheme based on Seoul Colors.
 Plug 'junegunn/seoul256.vim'
 
 " LeaderF for fuzzy finder
-" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 Plug 'jremmen/vim-ripgrep'
 
@@ -40,7 +40,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 
 " for common lisp develop
-Plug 'vlime/vlime', {'rtp': 'vim/'}
+Plug 'jpalardy/vim-slime'
 
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
@@ -90,6 +90,11 @@ set shiftround             " >> indents to next multiple of 'shiftwidth'.
 " for rust-lang/rust.vim
 syntax enable
 filetype plugin indent on
+
+" vim-slime
+" for all buffers
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "{last}"}
 
 " yank to clipboard
 if has("clipboard")
