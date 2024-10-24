@@ -45,8 +45,6 @@ Plug 'jpalardy/vim-slime'
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
 
-Plug 'brookhong/cscope.vim'
-
 " TMux - Vim integration
 "
 Plug 'christoomey/vim-tmux-navigator'
@@ -114,27 +112,6 @@ set switchbuf+=usetab,newtab
 set guifont=Fira\ Code:h18
 
 noremap <c-e> :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-
-nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
-nnoremap <leader>l :call ToggleLocationList()<CR>
-
-" s: Find this C symbol
-nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
-" g: Find this definition
-nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
-" d: Find functions called by this function
-nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
-" c: Find functions calling this function
-nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
-" t: Find this text string
-nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
-" e: Find this egrep pattern
-nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
-" f: Find this file
-nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
-" i: Find files #including this file
-nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
-
 
 " Write all buffers before navigating from Vim to tmux pane
 let g:tmux_navigator_save_on_switch = 2
