@@ -60,6 +60,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-tsserver
 " config c++ language server clangd
 " :CocInstall coc-clangd
+" :CocInstall coc-sh
 
 " Initialize plugin system
 call plug#end()
@@ -128,12 +129,11 @@ noremap <silent> <C-k> :<C-U>TmuxNavigateUp<cr>
 noremap <silent> <C-l> :<C-U>TmuxNavigateRight<cr>
 noremap <silent> <C-w> :<C-U>TmuxNavigatePrevious<cr>
 
-" vlime config
-let g:vlime_enable_autodoc = v:true
-let g:vlime_window_settings = {'sldb': {'pos': 'belowright', 'vertical': v:true}, 'inspector': {'pos': 'belowright', 'vertical': v:true}, 'preview': {'pos': 'belowright', 'size': v:null, 'vertical': v:true}}
-
+" vim-cmake config
+let g:cmake_link_compile_commands = 1
 " coc config start
 " https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
+let g:coc_global_extensions = ['coc-tsserver', 'coc-sh', 'coc-clangd']
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
