@@ -1,0 +1,5 @@
+{
+    "clangd":{
+        "compilationDatabaseCandidates": ["cmake-build-debug", "cmake-build-release", "Debug", "Release"]
+    }
+}

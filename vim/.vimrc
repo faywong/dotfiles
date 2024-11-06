@@ -27,7 +27,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'ZSaberLv0/ZFVimDirDiff'
 Plug 'ZSaberLv0/ZFVimJob'
-" Plug 'cdelledonne/vim-cmake'
+Plug 'cdelledonne/vim-cmake'
 " seoul256.vim is a low-contrast Vim color scheme based on Seoul Colors.
 Plug 'junegunn/seoul256.vim'
 
@@ -53,8 +53,13 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'altercation/vim-colors-solarized'
 Plug 'lifepillar/vim-solarized8'
 
-" Use release branch (recommended)
+" coc LSP server and extensions
+" install plugin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" config typescript
+" :CocInstall coc-tsserver
+" config c++ language server clangd
+" :CocInstall coc-clangd
 
 " Initialize plugin system
 call plug#end()
