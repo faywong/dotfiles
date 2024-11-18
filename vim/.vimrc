@@ -84,6 +84,9 @@ colorscheme solarized8_high
 let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
 
+" vim-snippets
+let g:snipMate = { 'snippet_version' : 1 }
+
 " indent
 set autoindent             " Indent according to previous line.
 set expandtab              " Use spaces instead of tabs.
