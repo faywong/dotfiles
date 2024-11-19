@@ -136,6 +136,7 @@ noremap <silent> <C-w> :<C-U>TmuxNavigatePrevious<cr>
 let g:cmake_link_compile_commands = 1
 " coc config start
 " https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
+" if extensions fail, you can clean the directory at $HOME/.config/coc/extensions
 let g:coc_global_extensions = ['coc-tsserver', 'coc-sh', 'coc-clangd']
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
