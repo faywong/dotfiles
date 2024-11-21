@@ -1,8 +1,11 @@
 #!/bin/sh
-echo "installing dev toolkit"
+echo "...installing dev toolkit..."
 sudo apt install -y clangd ripgrep nodejs python3
-echo "updating hosts file avoid github 404..."
-sed -i "/# GitHub520 Host Start/Q" /etc/hosts && curl https://raw.hellogithub.com/hosts >> /etc/hosts
+echo "...updating hosts file avoid github 404..."
+sudo sed -i "/# GitHub520 Host Start/Q" /etc/hosts && curl https://raw.hellogithub.com/hosts >> /etc/hosts
+echo "...install vim-plug..."
+sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # 定义 .npmrc 文件路径
 NPMRC="$HOME/.npmrc"
 
@@ -24,5 +27,6 @@ if ! grep -q "^$KEY=" "$NPMRC"; then
 else
   echo "'$KEY' 已存在于 $NPMRC 中，无需追加。"
 fi
+echo "...拷贝 vim 和 git 的配置到本地..."
 cp ./vim/.vimrc ~/
 cp ./git/.gitconfig ~/
