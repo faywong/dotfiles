@@ -83,6 +83,8 @@ colorscheme solarized8_high
 " Leaderf
 let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_CommandMap = {'<C-T>': ['<CR>']}
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_DefaultExternalTool = "rg"
 
 " vim-snippets
 let g:snipMate = { 'snippet_version' : 1 }
@@ -137,7 +139,7 @@ let g:cmake_link_compile_commands = 1
 " coc config start
 " https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
 " if extensions fail, you can clean the directory at $HOME/.config/coc/extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-sh', 'coc-clangd']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-sh', 'coc-clangd', 'coc-cmake']
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
