@@ -45,10 +45,6 @@ Plug 'jpalardy/vim-slime'
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
 
-" TMux - Vim integration
-"
-Plug 'christoomey/vim-tmux-navigator'
-
 " solarized colorscheme
 " Plug 'altercation/vim-colors-solarized'
 Plug 'lifepillar/vim-solarized8'
@@ -123,16 +119,6 @@ set switchbuf+=usetab,newtab
 set guifont=Fira\ Code:h18
 
 noremap <c-e> :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-
-" Write all buffers before navigating from Vim to tmux pane
-let g:tmux_navigator_save_on_switch = 2
-let g:tmux_navigator_no_mappings = 1
-
-noremap <silent> <C-h> :<C-U>TmuxNavigateLeft<cr>
-noremap <silent> <C-j> :<C-U>TmuxNavigateDown<cr>
-noremap <silent> <C-k> :<C-U>TmuxNavigateUp<cr>
-noremap <silent> <C-l> :<C-U>TmuxNavigateRight<cr>
-noremap <silent> <C-w> :<C-U>TmuxNavigatePrevious<cr>
 
 " vim-cmake config
 let g:cmake_link_compile_commands = 1
