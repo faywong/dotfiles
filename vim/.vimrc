@@ -57,6 +57,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " config c++ language server clangd
 " :CocInstall coc-clangd
 " :CocInstall coc-sh
+" :CocInstall coc-rime-ls
 
 " Initialize plugin system
 call plug#end()
@@ -125,7 +126,36 @@ let g:cmake_link_compile_commands = 1
 " coc config start
 " https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
 " if extensions fail, you can clean the directory at $HOME/.config/coc/extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-sh', 'coc-clangd', 'coc-cmake']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-sh', 'coc-clangd', 'coc-cmake', 'coc-rime-ls']
+
+" coc-rime-ls config
+function! RimeToggle()
+  let rime_enable = CocAction('runCommand', 'coc-rime-ls.toggle')
+  if rime_enable
+    inoremap <silent> <Space> <C-r>=RimeConfirm()<CR>
+    echomsg 'Rime enable'
+  else
+    iunmap <silent><expr> <Space>
+    echomsg 'Rime disable'
+  endif
+  return ''
+endfunction
+
+function! RimeConfirm()
+  let result = CocAction('runCommand', 'coc-rime-ls.completion_with_first')
+  if result is v:false
+    return "\<Space>"
+  endif
+  return ''
+endfunction
+
+command! RimeToggle call RimeToggle()
+
+nmap <C-t> :RimeToggle<CR>
+imap <expr> <C-t> RimeToggle()
+" 默认不开启
+" call coc#config('rime-ls.enabled', v:true)
+call coc#config('rime-ls.shared_data_dir', '/usr/share/rime-data')
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
