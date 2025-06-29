@@ -1,10 +1,5 @@
 {
     "clangd":{
         "compilationDatabaseCandidates": ["cmake-build-debug", "cmake-build-release", "Debug", "Release"]
-    },
-    "rime": {
-        "shared_data_dir": "/Users/faywong/Library/Rime",
-        "user_data_dir": "/Users/faywong/Library/Rime",
-        "schemaId": "rime_frost"
     }
 }
